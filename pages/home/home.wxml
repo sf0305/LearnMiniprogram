@@ -1,3 +1,11 @@
 <!--pages/home/home.wxml-->
-<text class='title'>shenfeng</text>
-<button size="mini">按钮</button>
+<!-- MVVM架构,将我们的命令式编程（原生DOM）变成声明式编程（Vue，React，Augular）
+  DOM Listeners:ViewModel层可以将DOM的监听绑定到Model层
+  Data Bindings:ViewModel层可以将数据的变量，响应式的反应到View层
+ -->
+ <!-- 2.获取用户信息方式 -->
+ <button size="mini" open-type='getUserInfo' bindgetuserinfo='handleGetUserInfo'>获取授权</button>
+ <!-- 3.展示用户信息方式 -->
+<open-data type="userNickName"></open-data>
+<open-data type="userAvatarUrl"></open-data>
+<open-data type="userAvatarUrl"></open-data>

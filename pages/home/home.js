@@ -1,66 +1,58 @@
 // pages/home/home.js
+//getApp()获取App()
+const app = getApp()
+console.log(app.globalData.name)
+console.log(app.globalData.age)
+const name = app.globalData.name
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
+  handleGetUserInfo(event){
+    console.log(event)
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  //---------------监听页面的生命周期函数-------------------------
+  //页面被加载时
+  onLoad(){
+    console.log("onLoad")
+    //发送网络请求
+    wx.request({
+      url: 'http://123.207.32.32:8080/recommend',
+      //箭头函数的this一层一层往上找
+      // success:(res) => {
+      //   console.log(res)
+      //   const data = res.data.data.list;
+      //   this.setData({
+      //     list: data
+      //   })
+      // }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  //页面显示出来时调用的函数
+  onShow(){
+    console.log("onShow")
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  //页面初次渲染完成时
+  onReady(){
+    console.log("onReady")
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  //页面被隐藏时
+  onHide(){
+    console.log("onHide")
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  //打开一个页面并关闭时
+  onUnload(){
+    console.log("onUnload")
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  //监听页面滚动
+  onPageScroll(obj){
+    console.log(obj)
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  //监听页面滚动到顶部
+  onReachBottom(){
+    console.log("页面滚动到底部")
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  //下拉刷新
+  onPullDownRefresh(){
+    console.log("下拉刷新")
   }
+  
 })
